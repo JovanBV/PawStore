@@ -36,3 +36,26 @@
     color: rgba(99, 106, 232);
     border-bottom: 2px solid rgba(99, 106, 232);
 }
+
+.home{
+    background-color: black;
+}
+
+.nav-active, .nav-inactive {
+    margin: 1.5rem 1rem;
+    color: #3a3d5c;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.nav-active{
+    text-decoration: line-through;
+    text-decoration-color: rgba(99, 106, 232);
+    color: rgba(99, 106, 232);
+}
+.nav-inactive{
+    text-decoration: none;
+}
