@@ -1,0 +1,119 @@
+.admin-dashboard {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.dashboard-card {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    min-width: 600px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0.5rem 0rem 0.5rem 0rem;
+}
+
+
+.table-wrapper {
+    width: 100%;
+    max-height: 17rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+}
+
+thead, tbody, tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.tittle-card{
+    padding: 15px;
+    align-items: start;
+}
+
+.tittle-card > h2{
+    margin: 0.5rem 0rem 0rem 0rem;
+    font-size: medium;
+    color: #9294a8;
+}
+
+.headers > th{
+    text-align: left;
+    padding: 10px;
+}
+
+.headers > .actions{
+    text-align: right;
+}
+
+tbody td {
+    text-align: left;
+    padding: 10px;
+}
+
+tbody tr {
+    height: 3.6rem;
+    padding: 1rem;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+button.category{
+    min-width: 80px;
+    border: solid 1px #e0e0e0;
+    border-radius: 25px;
+    padding: 0.5rem 0.5rem;
+    background-color: #e0e0e0;
+    color: black;
+    cursor: pointer;
+}
+
+button.category:hover {
+    background-color: #d0d0d0;
+    border-color: black;
+}
+
+.btns{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    padding: 0rem;
+    margin: 0.25rem;
+}
+
+.btns > button {
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    color: black
+}
+
+.btns > button:hover {
+    background-color: #d0d0d0;
+    border-color: black;
+}

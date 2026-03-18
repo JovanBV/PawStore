@@ -1,12 +1,12 @@
 import {useParams, Link} from "react-router-dom"
-import productsData from "../data/products.json"
 import "../styles/ProductDetail.css"
+import { useProductStore } from "../stores/productStore"
 
 
 function ProductDetail(){
 
     const {productId} = useParams()
-    const thisProduct = productsData.find(prod => prod.id === parseInt(productId))
+    const thisProduct = useProductStore(state => state.products.find(prod => prod.id === parseInt(productId)))
     
     return (
         <div className="product-container">

@@ -9,6 +9,7 @@ function Navbar() {
                     <Link to={`/`} className="option">Home</Link>
                     <Link to={`/products`} className="option">Catalog</Link>
                     <Link to={`/`} className="option">Contact</Link>
+                    <Link to={`/admin`} className="option">Admin</Link>
                 </div>
             </div>
             }

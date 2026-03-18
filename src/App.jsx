@@ -3,25 +3,26 @@ import Home from "./components/Home"
 import { Route, Routes } from "react-router-dom"
 import "./styles/App.css"
 import Footer from "./components/Footer"
-import Catalog from "./components/Catalog"
-import ProductDetail from "./components/ProductDetail"
-import ProductList from "./data/products.json"
+import ProductsPage from "./pages/ProductsPage"
+import ProductDetailPage from "./pages/ProductDetailPage"
+import AdminPage from "./pages/AdminPage"
 
 function App() {
-
   return (
     <div className="app">
       <Navbar />
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Catalog products={ProductList}/>} />
-          <Route path="/products/:productId" element={<ProductDetail/>}/>
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:productId" element={<ProductDetailPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </main>
       <Footer />
     </div>
   )
 }
+
 
 export default App
