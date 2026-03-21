@@ -6,6 +6,7 @@ import Footer from "./components/Footer"
 import ProductsPage from "./pages/ProductsPage"
 import ProductDetailPage from "./pages/ProductDetailPage"
 import AdminPage from "./pages/AdminPage"
+import EditPage from "./pages/EditPage"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:productId" element={<ProductDetailPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/edit/:productId" element={<EditPage />} />
         </Routes>
       </main>
       <Footer />
