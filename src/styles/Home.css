@@ -1,0 +1,25 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.home-page p {
+    color: #9294a8;
+    padding: 1rem;
+}
+
+.home-page h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3a3d5c;
+    padding: 1rem;
+}
+
+.home-link {
+    color: rgba(99, 106, 232);
+    text-decoration: underline;
+    font-size: 0.95rem;
+}

@@ -1,0 +1,21 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.app > .navbar{
+    flex: 1;
+}
+
+.app > .main{
+    flex: 15;
+}
+
+.app > .footer{
+    flex: 1;
+}
+.Products{
+    display: flex;
+    flex-direction: column;
+}
