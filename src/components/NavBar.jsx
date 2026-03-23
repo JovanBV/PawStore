@@ -1,5 +1,5 @@
 import "../styles/NavBar.css"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import logo from "../assets/paw.svg"
 
 function Navbar() {
@@ -10,9 +10,10 @@ function Navbar() {
     return <div className="navbar">
                 <img className="navbar-logo" src={logo}/>
                 <div className="navbar-options">
-                    <Link to={`/`} className="option">Home</Link>
-                    <Link to={`/products`} className="option">Catalog</Link>
-                    <Link to={`/`} className="option">Contact</Link>
+                    <NavLink to={`/`} className={toggle}>Home</NavLink>
+                    <NavLink to={`/products`} className={toggle}>Catalog</NavLink>
+                    <NavLink to={`/contact`} className={toggle}>Contact</NavLink>
+                    <NavLink to={`/admin`} className={toggle}>Admin</NavLink>
                 </div>
             </div>
             }
