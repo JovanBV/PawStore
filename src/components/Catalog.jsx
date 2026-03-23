@@ -1,7 +1,10 @@
 import "../styles/Products.css"
 import Product from "./Product"
+import { useProductStore } from "../stores/productStore"
 
-function Catalog({ products }){
+function Catalog(){
+    const products = useProductStore(state => state.products);
+
     const productsList = products.map(product => (
         <Product key={product.id} data={product} />
     ))

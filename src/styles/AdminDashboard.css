@@ -1,0 +1,134 @@
+.admin-dashboard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.dashboard-card-one,
+.dashboard-card-two {
+    width: 98%;
+    min-width: 600px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.dashboard-card-one {
+    flex: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-card-two {
+    flex: 1.2;
+}
+
+.tittle-card {
+    flex-shrink: 0;
+    margin-bottom: 0.4rem;
+}
+
+.tittle-card h1 {
+    margin: 0 0 0.15rem 0;
+    font-size: 1.1rem;
+}
+
+.tittle-card h2 {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #9294a8;
+}
+
+.table-wrapper {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+}
+
+thead tr,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.headers th {
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+}
+
+.headers .actions {
+    text-align: right;
+}
+
+tbody td {
+    text-align: left;
+    padding: 2.5px 5px 2.5px 10px;
+    font-size: 0.9rem;
+}
+
+tbody tr {
+    height: 2.5rem;
+}
+
+button.category {
+    min-width: 80px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    padding: 0.25rem 0.5rem;
+    background-color: #e0e0e0;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+button.category:hover {
+    background-color: #d0d0d0;
+    border-color: black;
+}
+
+.btns {
+    display: flex;
+    gap: 8px;
+    justify-content: end;
+}
+
+.entry-button {
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-family: inherit;
+}
+
+.entry-button:hover {
+    background-color: #d0d0d0;
+    border-color: black;
+}

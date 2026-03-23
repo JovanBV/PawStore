@@ -41,7 +41,6 @@
 .product-info > h3 {
     text-decoration: none;
     border-bottom: none;
-
     margin: 0.2rem 0rem 0.2rem 0rem;
 }
 
@@ -58,16 +57,16 @@
     cursor: pointer;
 }
 
-.name {
-
+.product-info > .name {
     font-weight: bold;
 }
 
-.price {
+.product-info > .price {
     font-weight: bold;
     color: rgba(99, 106, 232);
 }
 
-.category {
+.product-info > .category {
+    font-size: small;
     color: #9294a8;
 }
