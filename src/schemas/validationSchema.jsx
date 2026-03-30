@@ -1,11 +1,11 @@
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
-    nombre: Yup.string().trim().required("El nombre es obligatorio."),
-    descripcion: Yup.string().trim().required("La descripcion es obligatoria."),
-    precio: Yup.number().required("El precio es obligatorio."),
-    categoria: Yup.string().trim().required("La categoria es obligatoria."),
-    imagen: Yup.string().trim().url().required("La imagen es obligatoria."),
+    name: Yup.string().trim().required("El nombre es obligatorio."),
+    description: Yup.string().trim().required("La descripcion es obligatoria."),
+    price: Yup.number().required("El precio es obligatorio."),
+    category: Yup.string().trim().required("La categoria es obligatoria."),
+    image_url: Yup.string().trim().url().required("La imagen es obligatoria."),
     stock: Yup.number().positive().required("El stock es obligatorio.")
 });
 

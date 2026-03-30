@@ -21,12 +21,12 @@ function ProductDetail(){
     return (
         <div className="product-container">
             <div className="detail-image-container">
-                <img className= "detail-img" src={thisProduct.imagen}/>
+                <img className= "detail-img" src={thisProduct.image_url}/>
             </div>
             <div className="info-container">
-                <h1>{thisProduct.nombre}</h1>
-                <p>Price: ${thisProduct.precio}</p>
-                <p>{thisProduct.descripcion}</p>
+                <h1>{thisProduct.name}</h1>
+                <p>Price: ${thisProduct.price}</p>
+                <p>{thisProduct.description}</p>
                 <Link to="/products"className="detail-btn">Volver al catálogo</Link>
             </div>
         </div>
