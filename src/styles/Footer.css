@@ -4,9 +4,11 @@
     justify-content: space-between;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.15);
 }
-
+.footer {
+    flex-shrink: 0;
+}
 .footer-subunit{
-    margin: 1rem 1.5rem 1rem 1.5rem;
+    margin:  0.4rem 1.5rem;;
 }
 
 .footer-logos-box{
@@ -16,7 +18,7 @@
 }
 
 .footer-logo{
-    margin: 0.5rem;
+    margin:  0.25rem;
     max-width: 25px;
 }
 
