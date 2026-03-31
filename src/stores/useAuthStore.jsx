@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios from 'axios';
-import { useState } from 'react';
 import { useLoadingStore } from './LoadingStore';
 
 export const useAuthStore = create(persist((set, get) => ({
@@ -15,6 +14,7 @@ export const useAuthStore = create(persist((set, get) => ({
           email: user.email.trim(),
           password: user.password
         });
+        console.log(response)
         const userData = response.data.payload;
         const token = response.data.token;
         

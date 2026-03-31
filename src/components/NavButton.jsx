@@ -3,7 +3,7 @@ import "../styles/Navbutton.css"
 
 function NavButton({ text, linkTo, isButton = false }) {
   return (
-    <NavLink to={linkTo} className={( navigate ) => isButton ? "is-button" : (navigate.isActive ? "nav-active" : "nav-inactive")}>
+    <NavLink to={linkTo} className={( {isActive} ) => (isButton ? "is-button" : (isActive ? "nav-active" : "nav-inactive"))}>
       {text}
     </NavLink>
   )
