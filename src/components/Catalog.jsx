@@ -12,6 +12,7 @@ function Catalog(){
         fetchAllProducts()
     }, []);
 
+    console.log(products.length)
     return(
         products.length >= 1 ? (
             <div className="products-page">

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import axios from 'axios';
+import { authService } from '../api';
 import { useLoadingStore } from './LoadingStore';
 
 export const useAuthStore = create(persist((set, get) => ({
@@ -10,43 +10,28 @@ export const useAuthStore = create(persist((set, get) => ({
       useLoadingStore.getState().showLoading()
       try {
         await new Promise(resolve => setTimeout(resolve, 2000));
-        const response = await axios.post("http://127.0.0.1:5000/login", {
+        const data = await authService.login({
           email: user.email.trim(),
           password: user.password
         });
-        console.log(response)
-        const userData = response.data.payload;
-        const token = response.data.token;
-        
-        if (token) {
-          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        }
 
+        localStorage.setItem('authToken', data.token);
         set({ 
-          user: userData,
-          token: token
+          user: data.payload,
+          token: data.token
         });
-        get().setAuthHeader(token);
-      }catch (err) {
-        console.log(err)
+        return true;
+      }catch (error) {
+        throw error;
       }finally{
       useLoadingStore.getState().hideLoading()
       }
-
-      return true;
     },
     getUser: () => {
-      const { user } = get();
-      return user.nombre;
+      const state = get();
+      console.log(state)
+      return state.user?.name || "";
     },
-    setAuthHeader: (token) => {
-      if (token) {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      } else {
-        delete axios.defaults.headers.common['Authorization'];
-      }
-    },
-
     isAuthenticated: () => {
       const state = get();
       return state.user !== null && state.token !== null;
@@ -60,33 +45,27 @@ export const useAuthStore = create(persist((set, get) => ({
       useLoadingStore.getState().showLoading()
       try{
         await new Promise(resolve => setTimeout(resolve, 2000));
-        const response = await axios.post("http://127.0.0.1:5000/register", {
+        const data = await authService.register({
           email: user.email.trim(),
           password: user.password,
           name: user.name.trim()
         });
-        const userData = response.data.payload;
-        const token = response.data.token;
 
-        if (token) {
-          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        }
-
+        localStorage.setItem('authToken', data.token)
         set({ 
-          user: userData,
-          token: token 
+          user: data.payload,
+          token: data.token 
         });
 
-        get().setAuthHeader(token);
         return true;
-      }catch (err){
-        console.log(err)
+      }catch (error){
+        throw error
       }finally{
       useLoadingStore.getState().hideLoading()
       }
     },
     logout: () => {
-      get().setAuthHeader(null);
+      authService.logout();
       set({ 
         user: null,
         token: null 
