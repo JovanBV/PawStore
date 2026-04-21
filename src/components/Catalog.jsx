@@ -1,25 +1,31 @@
 import "../styles/Products.css"
 import Product from "./Product"
 import { useProductStore } from "../stores/productStore"
+import { useEffect } from "react";
+
 
 function Catalog(){
-    const products = useProductStore(state => state.products);
+    const products = useProductStore((state) => state.products);
+    const fetchAllProducts = useProductStore((state) => state.fetchAllProducts);
 
-    const productsList = products.map(product => (
-        <Product key={product.id} data={product} />
-    ))
+    useEffect(() => {
+        fetchAllProducts()
+    }, []);
+
     return(
-        productsList.length >= 1 ? (
+        products.length >= 1 ? (
             <div className="products-page">
                 <h1>Catálogo de productos</h1>
                 <div className="products-container">
-                    {productsList}
+                    {products.map(product => ( 
+                        <Product key={product.id} data={product}/>
+                    ))}
                 </div>
             </div>
         ) : (
             <div className="products-not-found">
                 <h1>No hay productos disponibles por el momento.</h1>
-                <p>Try by changing filters or search.</p>
+                <p>Intente filtrar.</p>
             </div>
         )
     )

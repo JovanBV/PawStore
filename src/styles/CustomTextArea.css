@@ -1,0 +1,50 @@
+/* CustomTextArea.css */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #111;
+    margin: 0;
+}
+
+.form-group textarea {
+    padding: 0.6rem 0.8rem;
+    min-height: 2.5rem;
+    height: 2.5rem;
+    max-height: 15rem;
+    overflow-y: auto;
+    line-height: 1.2;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 0;
+    resize: vertical;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #5b52e8;
+}
+
+.form-group textarea.textarea-error {
+    border-color: #d32f2f;
+}
+
+.error-message {
+    color: #d32f2f;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}

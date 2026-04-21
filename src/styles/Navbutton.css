@@ -1,0 +1,41 @@
+.nav-active, .nav-inactive {
+    margin: 1.5rem 1rem;
+    color: #3a3d5c;
+    font-weight: 400;
+    font-size: 0.95rem;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.nav-active {
+    text-decoration: none;
+    text-decoration-color: rgba(99, 106, 232);
+    color: rgba(99, 106, 232);
+}
+
+.nav-inactive {
+    text-decoration: none;
+}
+
+.nav-inactive:hover {
+    color: rgba(99, 106, 232);
+}
+
+.is-button{
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    font-weight: 500;
+    background: #fff;
+    color: #5b52e8;
+    border-color: #5b52e8;
+    text-decoration: none;
+}
+
+.is-button:hover {
+    color: white;
+    background: #4a42d6;
+}

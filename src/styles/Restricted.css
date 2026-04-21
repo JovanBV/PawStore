@@ -1,0 +1,39 @@
+.restricted-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.restricted-card {
+    background: #fff;
+    height: 50%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.lock {
+    width: 80px;
+    height: 80px;
+}
+
+.restricted-card h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #111;
+    text-align: center;
+    margin: 0;
+}
+
+.restricted-card h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    text-align: center;
+    margin: 0;
+}
