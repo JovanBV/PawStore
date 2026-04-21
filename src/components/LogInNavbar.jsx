@@ -4,14 +4,14 @@ import "../styles/LoginNavbar.css"
 
 function LogInNavbar() {
     return(
-        <div className="navbar">
-            <img className="navbar-logo" src={logo} alt="Logo" />
-            <div className="navbar-options">
+        <div className="login-navbar">
+            <img className="login-navbar__logo" src={logo} alt="Logo" />
+            <div className="login-navbar__options">
                 <NavButton linkTo="/" text="Inicio"/>
                 <NavButton linkTo="/products" text="Productos" />
                 <NavButton linkTo="/" text="Contacto" />
-                <NavButton isButton={true} linkTo="/register" text="Registrarse" />
             </div>
+            <NavButton isButton={true} linkTo="/register" text="Registrarse" />
         </div>
     )
 }

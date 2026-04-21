@@ -1,0 +1,50 @@
+.error-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.error-message-card {
+    background-color: #ffffff;
+    border: 1px solid #cccc;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    padding: 20px;
+}
+
+.error-message-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+}
+
+.error-message-body p {
+    margin: 0 0 20px 0;
+    font-size: 1rem;
+    color: #333333;
+}
+
+.error-message-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.accept-button {
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.accept-button:hover {
+    background-color: #6d28d9;
+}

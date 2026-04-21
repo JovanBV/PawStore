@@ -1,17 +1,16 @@
 .nav-active, .nav-inactive {
     margin: 1.5rem 1rem;
     color: #3a3d5c;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 0.95rem;
     padding-bottom: 3px;
-    border-bottom: 2px solid transparent;
     transition: color 0.2s ease, border-bottom 0.2s ease;
+    white-space: nowrap; 
 }
 
 .nav-active {
+    color:#6d63fa;
     text-decoration: none;
-    text-decoration-color: rgba(99, 106, 232);
-    color: rgba(99, 106, 232);
 }
 
 .nav-inactive {
@@ -29,10 +28,11 @@
     cursor: pointer;
     border: 1px solid #ccc;
     font-weight: 500;
-    background: #fff;
-    color: #5b52e8;
-    border-color: #5b52e8;
+    background:#6d63fa;
+    color: #fff;
+    border-color: #6d63fa;
     text-decoration: none;
+    white-space: nowrap; 
 }
 
 .is-button:hover {

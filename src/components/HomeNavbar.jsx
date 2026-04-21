@@ -6,13 +6,15 @@ import UserDisplay from "./UserDisplay"
 
 function HomeNavbar({ userInfo, onLogout, onLogin, isAdmin }) {
     return(
-        <div className="navbar">
-            <img className="navbar-logo" src={logo} alt="Logo" />
-            <div className="navbar-options">
+        <div className="home-navbar">
+            <img className="home-navbar__logo" src={logo} alt="Logo" />
+            <div className="home-navbar__options">
                 <NavButton linkTo="/" text="Inicio"/>
                 <NavButton linkTo="/products" text="Productos" />
-                <NavButton linkTo="/contact" text="Contacto" />
-                
+                <NavButton linkTo="/about" text="Acerca de" />
+                <NavButton linkTo="/cart" text="Carrito" />
+            </div>
+            <div>
                 {isAdmin && (
                     <NavButton linkTo="/admin" text="Admin" />
                 )}
@@ -26,7 +28,7 @@ function HomeNavbar({ userInfo, onLogout, onLogin, isAdmin }) {
                 ) : null}
 
                 {onLogin ? (
-                    <NavButton linkTo="/login" text="Iniciar sesion" isButton={true} onClick={onLogin} className="nav-inactive">Iniciar sesión</NavButton>
+                    <NavButton linkTo="/login" text="Iniciar sesion" isButton={true} onClick={onLogin}>Iniciar sesión</NavButton>
                 ): null}
             </div>
         </div>

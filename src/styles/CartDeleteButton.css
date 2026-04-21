@@ -1,0 +1,27 @@
+.checkout-product-delete-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 80%;
+    height: 40px;
+    border: none;
+    font-size: 1rem;
+    color: rgb(253, 69, 69);
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid white;
+
+}
+
+.checkout-product-delete-button:hover{
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border-color: rgb(253, 69, 69);
+}
+
+
+.checkout-product-delete-icon {
+    max-width: 20px;
+    max-height: 20px;
+}

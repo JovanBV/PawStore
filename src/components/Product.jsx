@@ -1,28 +1,32 @@
 import "../styles/Product.css"
 import { Link } from "react-router-dom"
+import AddToCartButton from "./AddToCartButton";
 
 function Product({ data }) {
     if (!data || !data.id) {
         return null;
     }
     return (
-        <Link to={`/products/${data.id}`} className="product-link">
+        <div className="product-link">
             <div className="product-card">
                 <div className="product-poster">
-                    <img src={data.image_url} alt={data.name} />
+                    <Link to={`/products/${data.id}`}>
+                        <img src={data.image_url} alt={data.name} />
+                    </Link>
                 </div>
                 <div className="product-info">
-                    <h3 className="name">{data.name}</h3>
-                    <p className="price">{data.price}</p>
-                    <p className="category">{data.category}</p>
+                    <Link to={`/products/${data.id}`} className="product-name">
+                        <h3 >{data.name}</h3>
+                    </Link>
+                    <p className="product-price">${data.price}</p>
+                    <p className="product-category">{data.category}</p>
                 </div>
-                <button className="btn">
-                    Ver detalles
-                </button>
+                <div className="product-card-btn">
+                    <AddToCartButton data={data}/>
+                </div>
             </div>
-        </Link>
-
-    )
-}
+        </div>
+    );
+};
 
 export default Product

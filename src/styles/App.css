@@ -1,17 +1,18 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .app {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 .app > .main {
     flex: 1;
     min-height: 0;
-    overflow: hidden;
-}
-
-.Products {
-    display: flex;
-    flex-direction: column;
+    overflow: auto;
 }

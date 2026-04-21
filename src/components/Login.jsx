@@ -63,7 +63,7 @@ function Login() {
                                     type="submit"
                                     disabled={props.isSubmitting}
                                 >
-                                    {props.isSubmitting ? "Cargando..." : "Ingresar"}
+                                {props.isSubmitting ? "Cargando..." : "Ingresar"}
                                 </button>
                                 <button onClick={()=> navigate("/")} className="back-home-button" type="button">Volver al inicio</button>
                             </div>
