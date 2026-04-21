@@ -1,41 +1,29 @@
 import { create } from "zustand";
-import axios from 'axios';
-import { useAuthStore } from "./useAuthStore";
 import { useLoadingStore } from "./LoadingStore";
+import productService from "../api/productsService";
 
-const API_URL = "http://127.0.0.1:5000";
 
-export const useProductStore = create((set, get) => ({
+export const useProductStore = create((set) => ({
     products: [],
     fetchAllProducts: async () => {
         useLoadingStore.getState().showLoading()
         try {
-            const response = await axios.get(`${API_URL}/products/`);
-            set({products: response.data})
+            const data = await productService.getAll();
+            set({products: data})
             useLoadingStore.getState().hideLoading()
-        } catch (err) {
-            console.error("Error fetching products:", err);
+        } catch (error) {
+            console.error("Error adding product:", err);
+            throw error;
+        }finally{
             useLoadingStore.getState().hideLoading()
         }
     },
     addProduct: async (product) => {
-        const token = useAuthStore.getState().token;
-        const isAdmin = useAuthStore.getState().isAdmin();
-
-        if (!isAdmin){
-            console.log("Solo administradores pueden hacer estas funciones.")
-        }
         useLoadingStore.getState().showLoading()
         try {
             await new Promise(resolve => setTimeout(resolve, 2000));
-            const response = await axios.post(`${API_URL}/products/`, product,
-            {headers: {
-                'Authorization': `Bearer ${token}`
-            }});
-            set((state) => ({
-                products: [...state.products, response.data]
-            }));
-            return response.data;
+            const data = await productService.create(product);
+            set((state) => ({products: [...state.products, data]}));
         } catch (err) {
             console.error("Error adding product:", err);
             throw err;
@@ -44,44 +32,33 @@ export const useProductStore = create((set, get) => ({
         }
     },
     editProduct: async (updatedProduct, id) => {
-        const token = useAuthStore.getState().token;
         useLoadingStore.getState().showLoading()
         try {
             await new Promise(resolve => setTimeout(resolve, 2000));
-            const response = await axios.patch(`${API_URL}/products/${id}`, updatedProduct, 
-            {headers: {
-                'Authorization': `Bearer ${token}`
-            }});
+            const data = await productService.update(id, updatedProduct)
             set((state) => ({
                 products: state.products.map((p) => 
-                    p.id === id ? response.data : p
+                    p.id === id ? data : p
                 )
             }));
-            return response.data;
-        } catch (err) {
-            console.error("Error editing product:", err);
+        } catch (error) {
+            console.error("Error editing product:", error);
+            throw error
         }finally{
             useLoadingStore.getState().hideLoading()
         }
     },
     deleteProduct: async (idToDelete) => {
-        const token = useAuthStore.getState().token;
-        const isAdmin = useAuthStore.getState().isAdmin();
         useLoadingStore.getState().showLoading()
-        
         try {
             await new Promise(resolve => setTimeout(resolve, 2000));
-            await axios.delete(`${API_URL}/products/${idToDelete}`, 
-                {headers: {
-                    'Authorization': `Bearer ${token}`
-                }}
-            );
+            const data = await productService.remove(idToDelete);
             set((state) => ({
                 products: state.products.filter((p) => p.id !== idToDelete)
             }))
-        } catch (err) {
-            console.error("Error deleting product:", err);
-            throw err;
+        } catch (error) {
+            console.error("Error deleting product:", error);
+            throw error;
         }finally{
             useLoadingStore.getState().hideLoading()
         }

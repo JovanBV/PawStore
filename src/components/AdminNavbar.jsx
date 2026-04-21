@@ -1,6 +1,8 @@
 import logo from "../assets/paw.svg"
 import NavButton from "./NavButton"
 import "../styles/AdminNavbar.css"
+import LogoutButton from "./LogoutButton"
+import UserDisplay from "./UserDisplay"
 
 function AdminNavbar({ onLogout, userInfo}) {
     return(
@@ -13,10 +15,9 @@ function AdminNavbar({ onLogout, userInfo}) {
                 <NavButton linkTo="/admin" text="Administración" />
             </div>
             <div className="navbar-options">
-                <p className="nav-inactive">Usuario: {userInfo()}</p>
-                <span onClick={onLogout} className="nav-inactive">Cerrar sesión</span>
+                <UserDisplay userName={userInfo()} />
+                <LogoutButton onClick={onLogout} />
             </div>
-
         </div>
     )
 }

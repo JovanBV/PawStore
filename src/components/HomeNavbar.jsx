@@ -1,6 +1,8 @@
 import logo from "../assets/paw.svg"
 import NavButton from "./NavButton"
 import "../styles/HomeNavbar.css"
+import LogoutButton from "./LogoutButton"
+import UserDisplay from "./UserDisplay"
 
 function HomeNavbar({ userInfo, onLogout, onLogin, isAdmin }) {
     return(
@@ -14,10 +16,13 @@ function HomeNavbar({ userInfo, onLogout, onLogin, isAdmin }) {
                 {isAdmin && (
                     <NavButton linkTo="/admin" text="Admin" />
                 )}
-                <p className="nav-inactive">{userInfo && `Usuario: ${userInfo()}`}</p>
+
+                {userInfo &&(
+                    <UserDisplay userName={userInfo()}/>
+                )}
 
                 {onLogout ? (
-                    <span onClick={onLogout} className="nav-inactive-logout">Cerrar sesión</span>
+                    <LogoutButton onClick={onLogout}/>
                 ) : null}
 
                 {onLogin ? (

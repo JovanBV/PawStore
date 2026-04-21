@@ -10,7 +10,7 @@ function LogInNavbar() {
                 <NavButton linkTo="/" text="Inicio"/>
                 <NavButton linkTo="/products" text="Productos" />
                 <NavButton linkTo="/" text="Contacto" />
-                <NavButton linkTo="/register" text="Registrarse" />
+                <NavButton isButton={true} linkTo="/register" text="Registrarse" />
             </div>
         </div>
     )
