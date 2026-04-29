@@ -1,9 +1,9 @@
 import trashIcon from '../assets/trash.svg';
-import { useCartStore } from '../stores/cartStore';
+import { useCart } from '../context/CartContext';
 import "../styles/CartDeleteButton.css"
 
 function DeleteButton({data}) {
-    const fullyDeleteItem = useCartStore((state) => state.fullyDeleteItem)
+    const { fullyDeleteItem } = useCart()
 
     return(
         <button

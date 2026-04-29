@@ -1,12 +1,10 @@
+import "../styles/CartItemButton.css"
 import { useState, useEffect } from "react";
 import "../styles/CartItemButton.css"
-import { useCartStore } from "../stores/cartStore";
+import { useCart } from "../context/CartContext";
 
 function CartItemButton({ data }) {
-    const addItem = useCartStore((state) => state.addItem)
-    const deleteItem = useCartStore((state) => state.deleteItem)
-    const print = useCartStore((state) => state.printCart)
-    const update = useCartStore((state) => state.updateItem)
+    const { addItem, deleteItem, updateItem: update } = useCart()
     const [inputValue, setInputValue] = useState(data.amount);
     const [isEditing, setIsEditing] = useState(false)
 
@@ -21,12 +19,10 @@ function CartItemButton({ data }) {
 
     const handleAdd = () => {
         addItem({...data})
-        print()
     }
 
     const handleDelete = () => {
         deleteItem({...data})
-        print()
     }
 
     return(

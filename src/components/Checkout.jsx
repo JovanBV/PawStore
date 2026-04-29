@@ -1,21 +1,20 @@
 import "../styles/Checkout.css"
 import { useNavigate } from "react-router-dom";
-import { useCartStore } from "../stores/cartStore";
 import CartDetail from "./CartDetail";
 import CustomInput from "./CustomInput"
 import CustomTextArea from "./CustonTextArea.jsx"
 import { Formik, Form } from "formik";
 import validationSchema from "../schemas/checkoutSchema.jsx"
-import { useAuthStore } from "../stores/useAuthStore.jsx"
 import { useRef } from "react";
 import Loading from "./Loading.jsx";
 
+import { useCart } from "../context/CartContext"
+import { useAuth } from "../context/AuthContext"
+
 function Checkout() {
     const navigate = useNavigate()
-    const products = useCartStore((state) => state.shoppingCart)
-    const checkoutCart = useCartStore((state) => state.allProcessCheckout)
-    const cartId = useCartStore((state) => state.shoppingCartId)
-    const userInfo = useAuthStore((state) => state.user)
+    const { shoppingCart: products, allProcessCheckout: checkoutCart, shoppingCartId: cartId } = useCart()
+    const { user: userInfo } = useAuth()
     const formikRef = useRef(null)
 
     const handleSubmit = async () => {

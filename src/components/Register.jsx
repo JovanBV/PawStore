@@ -1,4 +1,3 @@
-import { useAuthStore } from "../stores/useAuthStore"
 import { useNavigate } from "react-router-dom"
 import { Formik, Form } from "formik"
 import registerSchema from "../schemas/registerSchema"
@@ -6,15 +5,16 @@ import CustomInput from "./CustomInput"
 import "../styles/Register.css"
 import Loading from "./Loading"
 
+import { useAuth } from "../context/AuthContext"
+
 function Register() {
-    const register = useAuthStore((state) => state.register);
-    const isAdmin = useAuthStore((state) => state.isAdmin);
+    const { register, isAdmin } = useAuth()
     const navigate = useNavigate();
 
     const onSubmit = async (values) => {
         try {
             await register(values);
-            if(!isAdmin()){
+            if(!isAdmin){
                 navigate("/products");
             }
             return navigate("/admin") 

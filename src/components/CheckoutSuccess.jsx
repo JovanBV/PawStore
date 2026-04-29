@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
 import "../styles/CheckoutSuccess.css"
 import { useEffect } from "react";
-import { useCartStore } from "../stores/cartStore";
 import { useState } from "react";
 import NavButton from "../components/NavButton"
 import iconCheck from "../assets/icons-check.svg"
-import { useAuthStore } from "../stores/useAuthStore";
 import { useRef } from "react";
+import { useCart } from "../context/CartContext"
+import { useAuth } from "../context/AuthContext"
 
 function CheckoutSuccess() {
     const { cartId } = useParams()
-    const getCheckedCart = useCartStore((state) => state.getCheckedCart)
-    const user = useAuthStore((state) => state.user)
+    const { getCheckedCart } = useCart()
+    const { user } = useAuth()
     const [items, setItems] = useState([]);
     const hasFetched = useRef(false);
 
