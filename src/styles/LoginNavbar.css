@@ -1,4 +1,4 @@
-.navbar {
+.login-navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -6,14 +6,14 @@
     padding: 0 1rem;
 }
 
-.navbar-options {
+.login-navbar__options {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
 }
 
-.navbar-logo {
+.login-navbar__logo {
     margin: 1rem 2rem;
     width: 40px;
     height: 40px;

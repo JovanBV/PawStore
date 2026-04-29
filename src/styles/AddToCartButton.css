@@ -1,0 +1,26 @@
+.add-to-cart-button {
+    display: block;
+    width: 92%;
+    margin: 0.5rem;
+    border-radius: 15px;
+    padding: 0.40rem;
+    text-align: center;
+    background-color: rgb(99, 106, 232);
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.add-to-cart-btns-card{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.add-to-cart-product-amount{
+    font-weight: bold;
+}

@@ -1,46 +1,7 @@
-.page{
-    display: flex;
-    flex-direction: column;
-}
-
-
-h2{
-    margin: 0.5rem;
-    font-size: 2rem;
-}
-
 .products-container{
-    max-width: 70%;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(30%, 100%), 1fr));
     gap: 20px;
-}
-.products-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    overflow-y: auto;
-    box-sizing: border-box;
-}
-
-.products-not-found {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-}
-
-.products-not-found p{
-    color: #9294a8;
-}
-
-.products-page h1, 
-.products-not-found h1{
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 2rem 0 0.25rem 1.5rem;
-    padding-bottom: 0.5rem;
-    display: inline-block;
 }

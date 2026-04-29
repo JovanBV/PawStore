@@ -8,7 +8,6 @@ import CustomTextArea from "./CustonTextArea.jsx"
 
 function AddProductForm(){
     const addProduct = useProductStore((state) => state.addProduct)
-    
     const onSubmit = (values, actions) => {
         addProduct(values)
         actions.resetForm()

@@ -1,0 +1,82 @@
+.shopping-cart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: auto;
+    padding-top: 2rem;
+}
+
+.shopping-cart-card{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 65%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.shopping-cart-products-container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 70%;
+    gap: 1rem;
+}
+
+.shopping-cart-total-card{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    position: sticky;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.shopping-cart-price-card{
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.shopping-cart-price-card p{
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.shopping-cart-empty-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.shopping-cart-empty-cart-button{
+    width: 170px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.shopping-cart-total-card .is-button {
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0.8rem 1.4rem;
+}

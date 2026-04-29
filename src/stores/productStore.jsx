@@ -12,7 +12,7 @@ export const useProductStore = create((set) => ({
             set({products: data})
             useLoadingStore.getState().hideLoading()
         } catch (error) {
-            console.error("Error adding product:", err);
+            console.error("Error adding product:", error);
             throw error;
         }finally{
             useLoadingStore.getState().hideLoading()

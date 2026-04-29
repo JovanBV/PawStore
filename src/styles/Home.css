@@ -1,13 +1,41 @@
 .home-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 60vh;
+    height: 100%;
+    width: 100%;
+    gap: 1rem;
+    overflow: auto;
 }
 
+.welcome-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 500px;
+    margin: 4% 0;
+    background-image: url("../assets/background-photo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.77);
+    background-blend-mode: lighten;
+}
+
+.recommended-products-card{
+    width: 40%;
+    height: 45%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(30%, 100%), 1fr));
+    gap: 20px;
+}
+
+
 .home-page p {
-    color: #9294a8;
+    color: black;
     padding: 1rem;
 }
 

@@ -16,7 +16,6 @@ function AdminDashboard() {
     return (
         <div className="admin-dashboard">
             <Loading/>
-
             <div className="admin-table-section">
                 <div className="admin-table-header">
                     <h1>Administracion de productos</h1>

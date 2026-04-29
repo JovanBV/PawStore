@@ -1,8 +1,7 @@
-import "../styles/Products.css"
-import Product from "./Product"
+import "../styles/Catalog.css"
 import { useProductStore } from "../stores/productStore"
 import { useEffect } from "react";
-
+import Products from "./Products";
 
 function Catalog(){
     const products = useProductStore((state) => state.products);
@@ -12,15 +11,12 @@ function Catalog(){
         fetchAllProducts()
     }, []);
 
-    console.log(products.length)
     return(
         products.length >= 1 ? (
-            <div className="products-page">
+            <div className="products-return">
                 <h1>Catálogo de productos</h1>
-                <div className="products-container">
-                    {products.map(product => ( 
-                        <Product key={product.id} data={product}/>
-                    ))}
+                <div className="products-card">
+                    <Products data={products}/>
                 </div>
             </div>
         ) : (

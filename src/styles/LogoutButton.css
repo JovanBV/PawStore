@@ -9,6 +9,7 @@
   color: #e74c3c;
   border-color: #e74c3c;
   text-decoration: none;
+  white-space: nowrap; 
 }
 
 .logout-button:hover {

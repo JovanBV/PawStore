@@ -1,5 +1,4 @@
 import Home from "../components/Home"
-import ProductsPage from "../pages/ProductsPage"
 import ProductDetailPage from "../pages/ProductDetailPage"
 import AdminPage from "../pages/AdminPage"
 import EditPage from "../pages/EditPage"
@@ -9,8 +8,24 @@ import RestrictedPage from "../pages/RestrictedPage"
 import ProtectedRoute from "../components/ProtectedRoute"
 import RootLayout from "../components/RootLayout"
 import { Route, Routes } from "react-router-dom"
+import ProductsPage from "../pages/ProductsPage"
+import CartPage from "../pages/CartPage"
+import CheckoutPage from "../pages/CheckoutPage"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
+import { useAuthStore } from "../stores/useAuthStore"
+import CheckoutSuccessPage from "../pages/CheckoutSuccessPage"
+import NotFoundPage from "../pages/NotFoundPage"
+
 
 const AppRoutes = () => {
+  const navigate = useNavigate();
+  const setOnAuthError = useAuthStore((state) => state.setOnAuthError);
+
+  useEffect(() => {
+      setOnAuthError(() => () => navigate('/login'));
+  }, []);
+
   return (
     <Routes>
       <Route element={<RootLayout />}>
@@ -24,7 +39,10 @@ const AppRoutes = () => {
         
         <Route path="/admin" element={<ProtectedRoute requireAdmin><AdminPage /></ProtectedRoute>} />
         <Route path="/edit/:productId" element={<ProtectedRoute requireAdmin><EditPage /></ProtectedRoute>} />
-        <Route path="*" element={<p>Página no encontrada</p>} />
+        <Route path="/cart" element={<ProtectedRoute><CartPage/></ProtectedRoute>} />
+        <Route path="/checkout" element= {<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
+        <Route path="/receipt/:cartId" element= {<ProtectedRoute><CheckoutSuccessPage /></ProtectedRoute>} />
+        <Route path="*" element={<NotFoundPage/>} />
       </Route>
     </Routes>
   )

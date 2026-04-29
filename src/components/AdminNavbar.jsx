@@ -6,15 +6,15 @@ import UserDisplay from "./UserDisplay"
 
 function AdminNavbar({ onLogout, userInfo}) {
     return(
-        <div className="navbar">
-            <div className="navbar-options">
-                <img className="navbar-logo" src={logo} alt="Logo" />
+        <div className="admin-navbar">
+            <div className="admin-navbar__options">
+                <img className="admin-navbar__logo" src={logo} alt="Logo" />
                 <NavButton linkTo="/" text="Inicio"/>
                 <NavButton linkTo="/products" text="Productos" />
                 <NavButton linkTo="/" text="Contacto" />
                 <NavButton linkTo="/admin" text="Administración" />
             </div>
-            <div className="navbar-options">
+            <div className="admin-navbar__options">
                 <UserDisplay userName={userInfo()} />
                 <LogoutButton onClick={onLogout} />
             </div>

@@ -4,9 +4,9 @@ import "../styles/RegisterNavbar.css"
 
 function RegisterNavbar() {
     return(
-        <div className="navbar">
-            <img className="navbar-logo" src={logo} alt="Logo" />
-            <div className="navbar-options">
+        <div className="register-navbar">
+            <img className="register-navbar__logo" src={logo} alt="Logo" />
+            <div className="register-navbar__options">
                 <NavButton linkTo="/" text="Inicio"/>
                 <NavButton linkTo="/products" text="Productos" />
                 <NavButton linkTo="/" text="Contacto" />
