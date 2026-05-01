@@ -1,15 +1,12 @@
 import { useState } from "react";
 import "../styles/AddToCartButton.css"
-import { useCartStore } from "../stores/cartStore";
+import { useCart } from "../context/CartContext";
 
 function AddToCartButton( {data} ){
     const [click, handleIsClicked] = useState(false);
     const [value, setValue] = useState(0);
 
-    const addItem = useCartStore((state) => state.addItem)
-    const deleteItem = useCartStore((state) => state.deleteItem)
-    const print = useCartStore((state) => state.printCart)
-    const deleteAll = useCartStore((state) => state.deleteAll)
+    const { addItem, deleteItem } = useCart()
 
     return(
         <>
@@ -19,7 +16,6 @@ function AddToCartButton( {data} ){
                     handleIsClicked(true); 
                     setValue(value + 1)
                     addItem({...data})
-                    print()
                 }} 
                 className="add-to-cart-button">+ Agregar</button>
         )}
@@ -29,7 +25,6 @@ function AddToCartButton( {data} ){
                         onClick={() => {
                             setValue(value <= 0 ? value: value - 1);
                             deleteItem({...data})
-                            print()
                         }}
                         className="add-to-cart-button">-</button>
                     <p className="add-to-cart-product-amount">{value}</p>
@@ -38,7 +33,6 @@ function AddToCartButton( {data} ){
                             const newValue = value + 1
                             setValue(newValue)
                             addItem({...data})
-                            print()
                         }}
                         className="add-to-cart-button">+</button>
                 </div>

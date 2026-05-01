@@ -1,8 +1,8 @@
 import "../styles/CartDetail.css"
-import { useCartStore } from "../stores/cartStore";
+import { useCart } from "../context/CartContext"
 
 function CartDetail( { products } ){
-    const sumTotalPrice = useCartStore((state) => state.sumTotalPrice)
+    const { sumTotalPrice } = useCart()
     
     return(
     <div className="checkout-cart-item-info">

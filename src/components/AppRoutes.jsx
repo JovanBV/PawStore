@@ -13,17 +13,16 @@ import CartPage from "../pages/CartPage"
 import CheckoutPage from "../pages/CheckoutPage"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { useAuthStore } from "../stores/useAuthStore"
+import { useAuth } from "../context/AuthContext"
 import CheckoutSuccessPage from "../pages/CheckoutSuccessPage"
 import NotFoundPage from "../pages/NotFoundPage"
 
-
 const AppRoutes = () => {
   const navigate = useNavigate();
-  const setOnAuthError = useAuthStore((state) => state.setOnAuthError);
+  const { setOnAuthError } = useAuth();
 
   useEffect(() => {
-      setOnAuthError(() => () => navigate('/login'));
+    setOnAuthError(() => () => navigate('/login'));
   }, []);
 
   return (
@@ -40,12 +39,12 @@ const AppRoutes = () => {
         <Route path="/admin" element={<ProtectedRoute requireAdmin><AdminPage /></ProtectedRoute>} />
         <Route path="/edit/:productId" element={<ProtectedRoute requireAdmin><EditPage /></ProtectedRoute>} />
         <Route path="/cart" element={<ProtectedRoute><CartPage/></ProtectedRoute>} />
-        <Route path="/checkout" element= {<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
-        <Route path="/receipt/:cartId" element= {<ProtectedRoute><CheckoutSuccessPage /></ProtectedRoute>} />
+        <Route path="/checkout" element={<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
+        <Route path="/receipt/:cartId" element={<ProtectedRoute><CheckoutSuccessPage /></ProtectedRoute>} />
         <Route path="*" element={<NotFoundPage/>} />
       </Route>
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRoutes
+export default AppRoutes;

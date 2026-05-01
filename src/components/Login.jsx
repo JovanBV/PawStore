@@ -1,4 +1,3 @@
-import { useAuthStore } from "../stores/useAuthStore"
 import { useNavigate } from "react-router-dom"
 import { Formik, Form } from "formik"
 import loginShema from "../schemas/loginShema"
@@ -7,9 +6,10 @@ import "../styles/Login.css"
 import { useState } from "react"
 import Loading from "./Loading"
 
+import { useAuth } from "../context/AuthContext"
+
 function Login() {
-    const login = useAuthStore((state) => state.login);
-    const isAdmin = useAuthStore((state) => state.isAdmin);
+    const { login, isAdmin } = useAuth()
     const navigate = useNavigate();
     const [logInError, setLoginError] = useState("");
 
@@ -18,7 +18,7 @@ function Login() {
             setLoginError("");
             await login(values);
 
-            if(!isAdmin()){
+            if(!isAdmin){
                 navigate("/products");
             }
             return navigate("/admin") 

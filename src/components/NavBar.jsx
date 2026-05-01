@@ -1,17 +1,14 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { useAuthStore } from "../stores/useAuthStore";
 import LogInNavbar from "../components/LogInNavbar"
 import AdminNavbar from "../components/AdminNavbar"
 import RegisterNavbar from "./RegisterNavbar";
 import HomeNavbar from "./HomeNavbar";
+import { useAuth } from "../context/AuthContext"
 
 function Navbar() {
     const navigate = useNavigate();
-    const logout = useAuthStore((state) => state.logout);
-    const isAuthenticated = useAuthStore((state) => state.isAuthenticated());
-    const isAdmin = useAuthStore((state) => state.isAdmin());
+    const { logout, isAuthenticated, isAdmin, getUser } = useAuth()
     const location = useLocation();
-    const getUser = useAuthStore((state) => state.getUser);
 
     const handleLogout = () => {
         logout();
